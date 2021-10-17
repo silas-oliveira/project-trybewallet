@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+
+import { userEmail } from '../actions';
 
 class Login extends Component {
   constructor() {
@@ -11,7 +15,10 @@ class Login extends Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  // https://www.horadecodar.com.br/2020/09/13/como-validar-email-com-javascript/ referência Regex;
 
   handleChange({ target }) {
     const minCaracterButton = 4;
@@ -35,10 +42,23 @@ class Login extends Component {
     }
   }
 
+  handleSubmit(event) {
+    event.preventDefault();
+
+    const { setEmail, history } = this.props;
+    const { email } = this.state;
+
+    setEmail(email);
+
+    console.log('cliquei');
+
+    return history.push('/carteira');
+  }
+
   render() {
     const { button, password, email } = this.state;
     return (
-      <form>
+      <form onSubmit={ this.handleSubmit }>
         <h2>Realize seu login</h2>
         <label htmlFor="email">
           E-mail:
@@ -62,8 +82,7 @@ class Login extends Component {
         </label>
         <button
           name="button"
-          type="button"
-          onClick={ this.handleChange }
+          type="submit"
           disabled={ button }
         >
           Entrar
@@ -73,7 +92,16 @@ class Login extends Component {
   }
 }
 
-export default Login;
+const mapDispatchToProps = (dispatch) => ({
+  setEmail: (email) => dispatch(userEmail(email)),
+});
+
+Login.propTypes = {
+  setEmail: PropTypes.func.isRequired,
+  history: PropTypes.objectOf(Object).isRequired,
+};
+
+export default connect(null, mapDispatchToProps)(Login);
 
 // const validEmail =  /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
 // https://www.w3resource.com/javascript/form/email-validation.php

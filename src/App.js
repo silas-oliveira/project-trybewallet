@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Login from './pages/Login';
+import Wallet from './pages/Wallet';
 
 class App extends Component {
   render() {
     return (
-      <BrowserRouter>
-        <Switch>
-          <Route path="/"><Login /></Route>
-        </Switch>
-      </BrowserRouter>
+      <Switch>
+        <Route exact path="/" render={ (props) => <Login { ...props } /> } />
+        <Route path="/carteira" render={ (props) => <Wallet { ...props } /> } />
+      </Switch>
     );
   }
 }

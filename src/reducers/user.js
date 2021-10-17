@@ -5,7 +5,7 @@ export const INITIAL_STATE = {
   email: '',
 };
 
-export const myReducer = (state = INITIAL_STATE, action) => {
+export const emailReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
   case USER_LOGIN:
     return {
