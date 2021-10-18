@@ -20,26 +20,6 @@ const saveCurrencies = (data) => ({
 });
 
 export const fetchCurrencies = () => (
-  (dispatch) => getCurrency().then((data) => {
-    const object = Object.keys(data);
-    console.log(object);
-
-    dispatch(saveCurrencies(object));
-  })
+  (dispatch) => getCurrency()
+    .then((data) => dispatch(saveCurrencies(Object.keys(data))))
 );
-
-// export const myAsyncFunctionAction = () => {
-//   return (dispatch) => {
-//     dispatch(mySomeNotifyAction());
-//     return fetch('any_endpoint')
-//       .then((response) => response.json()
-//  .then(
-//           (json) => dispatch(myFunctionAction(json)),
-//         ));
-//   };
-// }
-
-// export const fetchCurrencies = () => (
-//   (dispatch) => getCurrency()
-//     .then((data) => dispatch(saveCurrencies(Object.keys(data))))
-// );
