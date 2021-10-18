@@ -42,7 +42,7 @@ class Login extends Component {
     }
   }
 
-  handleSubmit(event) {
+  async handleSubmit(event) {
     event.preventDefault();
 
     const { setEmail, history } = this.props;

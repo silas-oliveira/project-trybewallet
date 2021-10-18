@@ -6,9 +6,11 @@
 
 import { combineReducers } from 'redux';
 import { emailReducer } from './user';
+import walletReducer from './wallet';
 
 const roorReducer = combineReducers({
   user: emailReducer,
+  wallet: walletReducer,
 });
 
 export default roorReducer;
