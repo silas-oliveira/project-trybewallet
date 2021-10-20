@@ -102,6 +102,3 @@ Login.propTypes = {
 };
 
 export default connect(null, mapDispatchToProps)(Login);
-
-// const validEmail =  /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
-// https://www.w3resource.com/javascript/form/email-validation.php

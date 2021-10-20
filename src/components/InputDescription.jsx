@@ -3,16 +3,16 @@ import PropTypes from 'prop-types';
 
 class InputDescription extends Component {
   render() {
-    const { handleChange, descricao } = this.props;
+    const { handleChange, description } = this.props;
     return (
-      <label htmlFor="descricao">
+      <label htmlFor="description">
         Descrição
         <input
           onChange={ handleChange }
-          value={ descricao }
-          id="descricao"
+          value={ description }
+          id="description"
           type="text"
-          name="descricao"
+          name="description"
         />
       </label>
     );
@@ -21,7 +21,7 @@ class InputDescription extends Component {
 
 InputDescription.propTypes = {
   handleChange: PropTypes.func.isRequired,
-  descricao: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
 };
 
 export default InputDescription;

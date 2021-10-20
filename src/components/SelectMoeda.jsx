@@ -4,15 +4,15 @@ import { connect } from 'react-redux';
 
 class SelectMoeda extends Component {
   render() {
-    const { handleChange, moeda, currencies } = this.props;
+    const { handleChange, currency, currencies } = this.props;
     return (
-      <label htmlFor="select-moeda">
+      <label htmlFor="select-currency">
         Moeda
         <select
-          name="moeda"
+          name="currency"
           onChange={ handleChange }
-          value={ moeda }
-          id="select-moeda"
+          value={ currency }
+          id="select-currency"
         >
           {currencies.map((element, index) => (
             <option key={ index } value={ element }>
@@ -31,7 +31,7 @@ const mapStateToProps = (state) => ({
 
 SelectMoeda.propTypes = {
   handleChange: PropTypes.func.isRequired,
-  moeda: PropTypes.arrayOf(PropTypes.string).isRequired,
+  currency: PropTypes.arrayOf(PropTypes.string).isRequired,
   currencies: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 

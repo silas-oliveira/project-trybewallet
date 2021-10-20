@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 
 class SelectPayment extends Component {
   render() {
-    const { handleChange, pagamento } = this.props;
+    const { handleChange, method } = this.props;
     return (
-      <label htmlFor="select-payment">
+      <label htmlFor="select-method">
         Método de pagamento
         <select
           onChange={ handleChange }
-          value={ pagamento }
-          name="pagamento"
-          id="select-payment"
+          value={ method }
+          name="method"
+          id="select-method"
         >
           <option>Dinheiro</option>
           <option>Cartão de Crédito</option>
@@ -24,7 +24,7 @@ class SelectPayment extends Component {
 
 SelectPayment.propTypes = {
   handleChange: PropTypes.func.isRequired,
-  pagamento: PropTypes.arrayOf(PropTypes.string).isRequired,
+  method: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default SelectPayment;
