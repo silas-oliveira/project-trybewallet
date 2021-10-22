@@ -9,7 +9,7 @@ class SelectMoeda extends Component {
       <label htmlFor="select-currency">
         Moeda
         <select
-          name="currency"
+          name="Método de pagamento"
           onChange={ handleChange }
           value={ currency }
           id="select-currency"

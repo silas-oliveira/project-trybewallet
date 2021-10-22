@@ -14,7 +14,7 @@ class SelectPayment extends Component {
           id="select-method"
         >
           <option>Dinheiro</option>
-          <option>Cartão de Crédito</option>
+          <option>Cartão de crédito</option>
           <option>Cartão de débito</option>
         </select>
       </label>
